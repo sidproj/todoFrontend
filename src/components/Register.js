@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './Register.css';
 import { useNavigate } from 'react-router';
+import { Link } from 'react-router-dom';
 const RegisterPage = () => {
 
   const history = useNavigate();
@@ -35,15 +36,14 @@ const RegisterPage = () => {
     if(res.message == "Registration Successful"){
       history("/login");
     }
-    console.log(res);
   };
 
   return (
     <div className="register-page">
-      <h1>Register</h1>
-      <div>
-        <div>
-          <label htmlFor="firstName">First Name:</label>
+      <div className="register-form">
+        <h1 className='register-heading'>Register</h1>
+        <div className='register-row'>
+          <label className='register-label' htmlFor="firstName">First Name:</label>
           <input
             type="text"
             id="firstName"
@@ -51,8 +51,8 @@ const RegisterPage = () => {
             onChange={(e) => setFirstName(e.target.value)}
           />
         </div>
-        <div>
-          <label htmlFor="lastName">Last Name:</label>
+        <div className='register-row'>
+          <label className='register-label' htmlFor="lastName">Last Name:</label>
           <input
             type="text"
             id="lastName"
@@ -60,8 +60,8 @@ const RegisterPage = () => {
             onChange={(e) => setLastName(e.target.value)}
           />
         </div>
-        <div>
-          <label htmlFor="email">Email:</label>
+        <div className='register-row'>
+          <label className='register-label' htmlFor="email">Email:</label>
           <input
             type="email"
             id="email"
@@ -69,8 +69,8 @@ const RegisterPage = () => {
             onChange={(e) => setEmail(e.target.value)}
           />
         </div>
-        <div>
-          <label htmlFor="password">Password:</label>
+        <div className='register-row'>
+          <label className='register-label' htmlFor="password">Password:</label>
           <input
             type="password"
             id="password"
@@ -78,8 +78,8 @@ const RegisterPage = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        <div>
-          <label htmlFor="confirmPassword">Confirm Password:</label>
+        <div className='register-row'>
+          <label className='register-label' htmlFor="confirmPassword">Confirm Password:</label>
           <input
             type="password"
             id="confirmPassword"
@@ -88,6 +88,7 @@ const RegisterPage = () => {
           />
         </div>
         <button onClick={handleSubmit}>Register</button>
+        <Link className='link' to="/login">Already have an account? Click here!</Link>
       </div>
     </div>
   );

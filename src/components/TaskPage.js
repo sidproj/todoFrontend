@@ -107,17 +107,22 @@ const TaskPage = (props) => {
   };
 
   return (
-    <div className="task-page">
-      <h1>Task Management</h1>
+    <div className="register-page">
+      <div className='main-nav'>
+        <h1 className='register-heading'>Task Management</h1>
+        <button className="btn-red" onClick={handleLogout}>Log out</button>
+      </div>
+      
+      <h2 className='register-heading'>Add Tasks</h2>
       <div className="add-task-container">
         <input
           type="text"
           id="newTask"
+          className='newTask'
         />
         <button className="btn-green" onClick={handleAddTask}>Add Task</button>
-        <button className="btn-red" onClick={handleLogout}>Log out</button>
       </div>
-      <h2>Pending Tasks</h2>
+      <h2 className='register-heading'>Pending Tasks</h2>
       <ul>
         {tasks.map((task, index) => (
           (!task.is_completed)?<TaskItem
@@ -128,7 +133,7 @@ const TaskPage = (props) => {
           />:<></>
         ))}
       </ul>
-      <h2>Comleted Tasks</h2>
+      <h2 className='register-heading'>Comleted Tasks</h2>
       <ul>
         {tasks.map((task, index) => (
           (task.is_completed)?<CompletedItem
@@ -145,9 +150,9 @@ const TaskPage = (props) => {
 const TaskItem = ({task,onUpdate,onDelete}) => {
   return (
     <li>
-      {task.name}
+      <div className='register-label'>{task.name}</div>
       <div>
-        <button className="btn-red" onClick={()=>onUpdate(task._id)}>Mark As Done</button>
+        <button className="btn-blue" onClick={()=>onUpdate(task._id)}>Mark As Done</button>
         <button className="btn-red" onClick={()=>onDelete(task._id)}>Delete</button>
       </div>
     </li>
@@ -157,7 +162,7 @@ const TaskItem = ({task,onUpdate,onDelete}) => {
 const CompletedItem = ({task,onDelete})=>{
   return (
     <li>
-      {task.name}
+      <div className='register-label'>{task.name}</div>
       <div>
         <button className="btn-red" onClick={()=>onDelete(task._id)}>Delete</button>
       </div>

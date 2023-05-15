@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './Login.css'; 
 import { useNavigate } from 'react-router';
+import { Link } from 'react-router-dom';
 
 
 const LoginPage = (props) => {
@@ -38,29 +39,32 @@ const LoginPage = (props) => {
   }
 
   return (
-    <div className="login-container">
-      <h1>Login</h1>
-      <form>
-        <div className="input-container">
-          <label>Username:</label>
-          <input
-            type="text"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-          />
-        </div>
-        <div className="input-container">
-          <label>Password:</label>
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
+    <div className="register-page">
+      <div className='login-form'>
+        <h1 className='register-heading'>Login</h1>
+        <div>
+          <div className="register-row">
+            <label className='register-label'>Username:</label>
+            <input
+              type="text"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+            />
+          </div>
+          <div className="register-row">
+            <label className='register-label'>Password:</label>
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
         </div>
         <button type="button" onClick={handleLogin}>
           Login
         </button>
-      </form>
+        <Link  className='link' to="/register">Don't have an account have an account? Click here!</Link>
+      </div>
     </div>
   );
 };

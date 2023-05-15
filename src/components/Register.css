@@ -1,13 +1,22 @@
 .register-page {
-  max-width: 500px;
+  height: 100%;
+  width:100%;
   margin: 0 auto;
-  padding: 20px;
+  position: fixed;
+  background-color: rgb(65, 65, 65);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-h1 {
+.register-heading{
   text-align: center;
-  color: #333;
-  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+.register-form > .register-heading{
+  margin-top:-10px;
 }
 
 form {
@@ -15,8 +24,30 @@ form {
   flex-direction: column;
 }
 
-label {
+.register-label {
   margin-bottom: 10px;
+  color:#fff;
+}
+
+.register-form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  height:30em;
+  width:30em;
+  border:none;
+  border-radius: 1em;
+  background-color: #333;
+  padding:2em;
+}
+
+.register-row{
+  width:100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 }
 
 input[type="text"],
@@ -27,6 +58,14 @@ input[type="password"] {
   border-radius: 3px;
   font-size: 14px;
   margin-bottom: 10px;
+  width:20em;
+
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus{
+  outline: none;
 }
 
 button {
@@ -37,4 +76,21 @@ button {
   border-radius: 3px;
   cursor: pointer;
   font-size: 14px;
+  width:10em;
+}
+
+.link{
+  color:#4caf50;
+  text-decoration: none;
+}
+
+.btn-blue{
+  padding: 5px 5px;
+  background-color: #356adc;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-left: 10px;
 }
